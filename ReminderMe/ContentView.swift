@@ -6,11 +6,20 @@
 //
 
 import SwiftUI
+import EventKit
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Button(action: {
+            let store = EKEventStore()
+            
+            store.requestAccess(to: .reminder) { (_, _) in
+                
+            }
+        }) {
+            Text("Request authorization")
+        }
     }
 }
 
