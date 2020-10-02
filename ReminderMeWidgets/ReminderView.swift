@@ -10,21 +10,21 @@ import EventKit
 
 struct ReminderView: View {
     
-    var title: String
-    var due: Date?
+    let title: String
+    let due: Date?
     var flag: Bool = false
     
-    private func getDueText() -> String {
+    private func getDueText() -> String? {
         
         if due == nil {
-            return ""
+            return nil
         } else if (Calendar.current.isDateInToday(due!)) {
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm"
             return formatter.string(from: due!)
         }
         
-        return String(NSLocalizedString(Calendar.current.weekdaySymbols[Calendar.current.component(.weekday, from: due!) - 1], comment: "Weekday").prefix(2))
+        return String(Calendar.current.weekdaySymbols[Calendar.current.component(.weekday, from: due!) - 1].prefix(2))
     }
     
     var body: some View {
@@ -33,7 +33,7 @@ struct ReminderView: View {
             Text(title).font(.caption)
             Spacer()
             if due != nil {
-                Text(getDueText()).font(.caption)
+                Text(getDueText() ?? "").font(.caption)
             }
         }
     }
