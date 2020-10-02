@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FDCECB62527E45A0095994D /* ReminderWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDCECB52527E45A0095994D /* ReminderWidgetView.swift */; };
 		8FFBDA612523B0E400D0D9B2 /* ReminderMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDA602523B0E400D0D9B2 /* ReminderMeApp.swift */; };
 		8FFBDA632523B0E400D0D9B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDA622523B0E400D0D9B2 /* ContentView.swift */; };
 		8FFBDA652523B0E600D0D9B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFBDA642523B0E600D0D9B2 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8FDCECB52527E45A0095994D /* ReminderWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderWidgetView.swift; sourceTree = "<group>"; };
 		8FFBDA5D2523B0E400D0D9B2 /* ReminderMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFBDA602523B0E400D0D9B2 /* ReminderMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderMeApp.swift; sourceTree = "<group>"; };
 		8FFBDA622523B0E400D0D9B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				8FFBDA7F2523B10200D0D9B2 /* Info.plist */,
 				8FFBDB2A2523FD0200D0D9B2 /* ReminderMe.intentdefinition */,
 				8FFBDAB82523C0A800D0D9B2 /* ReminderView.swift */,
+				8FDCECB52527E45A0095994D /* ReminderWidgetView.swift */,
 			);
 			path = ReminderMeWidgets;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FFBDB272523FD0200D0D9B2 /* ReminderMe.intentdefinition in Sources */,
+				8FDCECB62527E45A0095994D /* ReminderWidgetView.swift in Sources */,
 				8FFBDAB42523C04F00D0D9B2 /* IntentHandler.swift in Sources */,
 				8FFBDAB92523C0A800D0D9B2 /* ReminderView.swift in Sources */,
 				8FFBDA7C2523B10100D0D9B2 /* ReminderMeWidgets.swift in Sources */,

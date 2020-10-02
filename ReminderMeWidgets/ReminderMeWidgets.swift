@@ -53,7 +53,7 @@ struct Provider: IntentTimelineProvider {
         }
     }
 
-    func getTimeline(for configuration: ViewRemindersIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(for configuration: ViewRemindersIntent, in context: Context, completion: @escaping (Timeline<RemindersEntry>) -> ()) {
         
         let now = Date()
         let startOfToday = Calendar.current.startOfDay(for: now)
@@ -68,11 +68,11 @@ struct Provider: IntentTimelineProvider {
         if let aPredicate = predicate {
             store.fetchReminders(matching: aPredicate, completion: {(_ reminders: [EKReminder]?) -> Void in
                 
-                let filteredReminders = reminders?.filter { $0.dueDateComponents == nil || $0.dueDateComponents?.date ?? now < endOfToday }
-                let sorted = filteredReminders!.sorted { $0.dueDateComponents?.date ?? startOfToday < $1.dueDateComponents?.date ?? startOfToday }
+                var processedReminders = configuration.showOnlyToday == true ? reminders?.filter { $0.dueDateComponents == nil || $0.dueDateComponents?.date ?? now < endOfToday } : reminders
+                processedReminders = processedReminders!.sorted { $0.dueDateComponents?.date ?? startOfToday < $1.dueDateComponents?.date ?? startOfToday }
                 
                 let entry = RemindersEntry(
-                    reminders: configuration.showOnlyToday == true ? sorted : reminders ?? [],
+                    reminders: processedReminders ?? [],
                     date: now,
                     configuration: configuration
                 )
@@ -96,65 +96,6 @@ struct RemindersEntry: TimelineEntry {
     let configuration: ViewRemindersIntent
 }
 
-struct ReminderWidgetEntryView : View {
-    
-    var entry: Provider.Entry
-
-    func getTitle() -> String {
-        if entry.configuration.selectedLists?.count == 1 {
-            return entry.configuration.selectedLists!.first!.displayString
-        } else if entry.configuration.showOnlyToday == true {
-            return "Heute"
-        } else {
-            return "Demnächst"
-        }
-    }
-    
-    func getColor() -> UIColor? {
-        return entry.configuration.selectedLists?.first?.getColor()
-    }
-    
-    @Environment(\.widgetFamily) var family
-    
-    @ViewBuilder
-    var body: some View {
-        VStack {
-            Group {
-                HStack {
-                    Text(getTitle()).bold()
-                    Spacer()
-                }.padding()
-            }.background(Color(UIColor.secondarySystemBackground)).shadow(radius: 1)
-            
-            if (entry.reminders.isEmpty) {
-                Spacer()
-                Image(systemName: "checkmark.seal.fill").font(.largeTitle).foregroundColor(Color(UIColor.secondaryLabel))
-                Text("Alles erledigt!").font(.caption).padding(.top).foregroundColor(Color(UIColor.secondaryLabel))
-                Spacer()
-            } else {
-                
-                ForEach(0..<entry.reminders.count) { i in
-                    ReminderView(
-                        title: entry.reminders[i].title,
-                        due: entry.reminders[i].dueDateComponents?.date
-                    )
-                    if i != entry.reminders.count-1 {
-                        Divider()
-                    }
-                }.padding(.horizontal)
-            
-                Spacer()
-                if family == .systemMedium {
-                    HStack {
-                        Text("Und 3 weitere").font(.caption2).foregroundColor(Color(UIColor.secondaryLabel)).padding()
-                        Spacer()
-                    }
-                }
-            }
-        }.background(Color(UIColor.systemBackground))
-    }
-}
-
 struct UpComingReminderWidget: Widget {
     var body: some WidgetConfiguration {
         IntentConfiguration(
@@ -162,11 +103,11 @@ struct UpComingReminderWidget: Widget {
             intent: ViewRemindersIntent.self,
             provider: Provider()
         ) { entry in
-            ReminderWidgetEntryView(entry: entry)
+            ReminderWidgeView(entry: entry)
         }
-        .configurationDisplayName("Upcoming")
-        .description("Zeigt die kommenden Erinnerungen ausgewählter Listen an.")
-        .supportedFamilies([.systemMedium, .systemLarge])
+        .configurationDisplayName(NSLocalizedString("widget.title", comment: "widget.title"))
+        .description(NSLocalizedString("widget.description", comment: "widget.description"))
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
 
@@ -181,13 +122,13 @@ struct ReminderWidgets: WidgetBundle {
 struct ReminderWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ReminderWidgetEntryView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
+            ReminderWidgeView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
                 .previewContext(WidgetPreviewContext(family: .systemLarge)).colorScheme(.dark)
-            ReminderWidgetEntryView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
+            ReminderWidgeView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
-            ReminderWidgetEntryView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
+            ReminderWidgeView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
-            ReminderWidgetEntryView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
+            ReminderWidgeView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
         }
     }

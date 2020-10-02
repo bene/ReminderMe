@@ -20,11 +20,11 @@ struct ReminderView: View {
             return nil
         } else if (Calendar.current.isDateInToday(due!)) {
             let formatter = DateFormatter()
-            formatter.dateFormat = "HH:mm"
+            formatter.timeStyle = .short
             return formatter.string(from: due!)
         }
         
-        return String(Calendar.current.weekdaySymbols[Calendar.current.component(.weekday, from: due!) - 1].prefix(2))
+        return String(Calendar.current.shortWeekdaySymbols[Calendar.current.component(.weekday, from: due!) - 1])
     }
     
     var body: some View {

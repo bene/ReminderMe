@@ -1,3 +1,9 @@
 "configuration"="Konfiguration";
 "access.granted"="Zugang stattgegeben";
 "access.denied"="Zugang verwehrt";
+"widget.title"="Erinnerungen";
+"widget.description"="Zeigt entweder die heutigen oder kommende Erinnerungen einer oder mehrerer Listen an.";
+"today"="Heute";
+"upcoming"="Demnächst";
+"widget.more"="weitere";
+"widget.done.all"="Alles erledigt!";
