@@ -6,4 +6,6 @@
 "today"="today";
 "upcoming"="upcoming";
 "widget.more"="more";
-"widget.done.all"="All done!";
+"widget.done.all"="All done.";
+"reminder.new"="New reminder";
+"list.empty"="Empty";

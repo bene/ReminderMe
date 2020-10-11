@@ -15,9 +15,7 @@ struct Provider: IntentTimelineProvider {
     let store = EKEventStore()
     
     func getCalendarsForConfiguration(configuration: ViewRemindersIntent) -> [EKCalendar]? {
-        
         if let cLists = configuration.selectedLists {
-         
             var lists = [EKCalendar]()
             
             cLists.forEach { optionalList in
@@ -25,10 +23,8 @@ struct Provider: IntentTimelineProvider {
                     lists.append(list)
                 }
             }
-            
             return lists
         }
-        
         return nil
     }
     
@@ -38,17 +34,29 @@ struct Provider: IntentTimelineProvider {
 
     func getSnapshot(for configuration: ViewRemindersIntent, in context: Context, completion: @escaping (RemindersEntry) -> ()) {
         
-        let endOfToday = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
+        let now = Date()
+        let startOfToday = Calendar.current.startOfDay(for: now)
+        let endOfToday = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: 1, to: now)!)
         
         let predicate: NSPredicate? = store.predicateForIncompleteReminders(
             withDueDateStarting: nil,
-            ending: configuration.showOnlyToday == true ? endOfToday : nil,
+            ending: nil,
             calendars: getCalendarsForConfiguration(configuration: configuration)
         )
         
         if let aPredicate = predicate {
             store.fetchReminders(matching: aPredicate, completion: {(_ reminders: [EKReminder]?) -> Void in
-                completion(RemindersEntry(reminders: reminders ?? [], date: Date(), configuration: configuration))
+                
+                var processedReminders = configuration.showOnlyToday == true ? reminders?.filter { $0.dueDateComponents == nil || $0.dueDateComponents?.date ?? now < endOfToday } : reminders
+                processedReminders = processedReminders!.sorted { $0.dueDateComponents?.date ?? startOfToday < $1.dueDateComponents?.date ?? startOfToday }
+                
+                let entry = RemindersEntry(
+                    reminders: processedReminders ?? [],
+                    date: now,
+                    configuration: configuration
+                )
+
+                completion(entry)
             })
         }
     }
@@ -77,11 +85,9 @@ struct Provider: IntentTimelineProvider {
                     configuration: configuration
                 )
                 
-                let nextUpdateDate = Calendar.current.date(byAdding: .second, value: 15, to: now)!
-                
                 let timeline = Timeline(
                     entries:[entry],
-                    policy: .after(nextUpdateDate)
+                    policy: .after(endOfToday)
                 )
 
                 completion(timeline)
@@ -99,7 +105,7 @@ struct RemindersEntry: TimelineEntry {
 struct UpComingReminderWidget: Widget {
     var body: some WidgetConfiguration {
         IntentConfiguration(
-            kind: "dev.bene.reminder.upcoming",
+            kind: "dev.bene.reminders",
             intent: ViewRemindersIntent.self,
             provider: Provider()
         ) { entry in
@@ -113,6 +119,16 @@ struct UpComingReminderWidget: Widget {
 
 @main
 struct ReminderWidgets: WidgetBundle {
+    
+    let store = EKEventStore()
+    var observer: Any
+    
+    init() {
+        observer = NotificationCenter.default.addObserver(forName: .EKEventStoreChanged, object: store, queue: .main) { _ in
+            WidgetCenter.shared.reloadTimelines(ofKind: "dev.bene.reminders")
+        }
+    }
+    
     @WidgetBundleBuilder
     var body: some Widget {
         UpComingReminderWidget()

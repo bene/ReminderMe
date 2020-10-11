@@ -7,6 +7,7 @@
 
 import SwiftUI
 import EventKit
+import WidgetKit
 
 struct ContentView: View {
     
@@ -18,42 +19,21 @@ struct ContentView: View {
     
     @ViewBuilder
     var body: some View {
-        TabView {
-            Section {
-                Text("Add")
+        NavigationView {
+            Button(action: {
+                store.requestAccess(to: .reminder) { (_, _) in
                     
-                    
-            }.tabItem {
-                Image(systemName: "list.bullet")
-                Text("First Tab")
-              }
-            NavigationView {
-                Form {
-                    Section {
-                        HStack {
-                            switch getAuthorizationStatus() {
-                            case EKAuthorizationStatus.authorized:
-                                Image(systemName: "checkmark.circle.fill").foregroundColor(Color(UIColor.systemGreen)).padding(.trailing)
-                                Text(NSLocalizedString("access.granted", comment: "access.granted"))
-                            case EKAuthorizationStatus.denied:
-                                Image(systemName: "xmark.octagon.fill").foregroundColor(Color(UIColor.systemRed)).padding(.trailing)
-                                Text(NSLocalizedString("access.denied", comment: "access.denied"))
-                            default:
-                                Button(action: {
-                                    store.requestAccess(to: .reminder) { (_, _) in
-                                        
-                                    }
-                                }) {
-                                    Text(NSLocalizedString("access.request", comment: "access.request"))
-                                }
-                            }
-                        }
-                    }
-                }.navigationTitle(NSLocalizedString("configuration", comment: "configuration"))
-            }.tabItem {
-                Image(systemName: "gear")
-                Text(NSLocalizedString("configuration", comment: "configuration"))
-              }
+                }
+            }) {
+                Text(NSLocalizedString("access.request", comment: "access.request"))
+            }
+            List {
+                NavigationLink(destination : ReminderListView(title: "Reminders", color: Color(UIColor.systemGreen), reminders: [])) {
+                    Text("Settings")
+                }
+            }.navigationBarItems(trailing: Button("Bearbeiten", action: {
+                
+            }))
         }
     }
 }

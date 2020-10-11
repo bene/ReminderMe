@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F87FB7E2529F8DC00627A4E /* ReminderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F87FB7D2529F8DC00627A4E /* ReminderListView.swift */; };
 		8FDCECB62527E45A0095994D /* ReminderWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDCECB52527E45A0095994D /* ReminderWidgetView.swift */; };
 		8FFBDA612523B0E400D0D9B2 /* ReminderMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDA602523B0E400D0D9B2 /* ReminderMeApp.swift */; };
 		8FFBDA632523B0E400D0D9B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDA622523B0E400D0D9B2 /* ContentView.swift */; };
@@ -26,6 +27,7 @@
 		8FFBDB262523FD0200D0D9B2 /* ReminderMe.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDB2A2523FD0200D0D9B2 /* ReminderMe.intentdefinition */; };
 		8FFBDB272523FD0200D0D9B2 /* ReminderMe.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDB2A2523FD0200D0D9B2 /* ReminderMe.intentdefinition */; };
 		8FFBDB282523FD0200D0D9B2 /* ReminderMe.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDB2A2523FD0200D0D9B2 /* ReminderMe.intentdefinition */; };
+		8FFE9AAE2529F2FE0088007B /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE9AAD2529F2FE0088007B /* ReminderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F87FB7D2529F8DC00627A4E /* ReminderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListView.swift; sourceTree = "<group>"; };
 		8FDCECB52527E45A0095994D /* ReminderWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderWidgetView.swift; sourceTree = "<group>"; };
 		8FFBDA5D2523B0E400D0D9B2 /* ReminderMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFBDA602523B0E400D0D9B2 /* ReminderMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderMeApp.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		8FFBDB172523F0E200D0D9B2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8FFBDB1C2523F0E600D0D9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8FFBDB292523FD0200D0D9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = en; path = en.lproj/ReminderMe.intentdefinition; sourceTree = "<group>"; };
+		8FFE9AAD2529F2FE0088007B /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 				8FFBDA642523B0E600D0D9B2 /* Assets.xcassets */,
 				8FFBDA692523B0E600D0D9B2 /* Info.plist */,
 				8FFBDA662523B0E600D0D9B2 /* Preview Content */,
+				8FFE9AAD2529F2FE0088007B /* ReminderView.swift */,
+				8F87FB7D2529F8DC00627A4E /* ReminderListView.swift */,
 			);
 			path = ReminderMe;
 			sourceTree = "<group>";
@@ -316,6 +322,8 @@
 			files = (
 				8FFBDB262523FD0200D0D9B2 /* ReminderMe.intentdefinition in Sources */,
 				8FFBDA632523B0E400D0D9B2 /* ContentView.swift in Sources */,
+				8F87FB7E2529F8DC00627A4E /* ReminderListView.swift in Sources */,
+				8FFE9AAE2529F2FE0088007B /* ReminderView.swift in Sources */,
 				8FFBDA612523B0E400D0D9B2 /* ReminderMeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,7 +436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -483,7 +491,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

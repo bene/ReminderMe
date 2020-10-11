@@ -30,7 +30,7 @@ struct ReminderWidgeView : View {
         case .systemMedium:
             return 3
         default:
-            return 8
+            return 10
         }
     }
     
