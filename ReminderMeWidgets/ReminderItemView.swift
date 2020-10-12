@@ -7,8 +7,9 @@
 
 import SwiftUI
 import EventKit
+import Intents
 
-struct ReminderView: View {
+struct ReminderItemView: View {
     
     let title: String
     let due: Date?
@@ -18,7 +19,7 @@ struct ReminderView: View {
         
         if due == nil {
             return nil
-        } else if (Calendar.current.isDateInToday(due!)) {
+        } else if Calendar.current.isDateInToday(due!) {
             let formatter = DateFormatter()
             formatter.timeStyle = .short
             return formatter.string(from: due!)
@@ -41,6 +42,6 @@ struct ReminderView: View {
 
 struct ReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReminderView(title: "Visit Anna", due: Date())
+        ReminderItemView(title: "Visit Anna", due: Date())
     }
 }

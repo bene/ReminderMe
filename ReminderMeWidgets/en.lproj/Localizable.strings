@@ -1,11 +1,13 @@
 "configuration"="configuration";
 "access.granted"="Access granted";
 "access.denied"="Access denied";
-"widget.title"="Reminders";
-"widget.description"="Displays either today's or upcoming reminders in one or more lists.";
 "today"="today";
 "upcoming"="upcoming";
-"widget.more"="more";
-"widget.done.all"="All done.";
 "reminder.new"="New reminder";
 "list.empty"="Empty";
+"widget.reminders.title"="Reminders";
+"widget.reminders.description"="Displays either today's or upcoming reminders in one or more lists.";
+"widget.combined.title"="Reminders and appointments";
+"widget.combined.description"="Shows you your current reminders and appointments at the same time.";
+"widget.more"="more";
+"widget.done.all"="All done.";

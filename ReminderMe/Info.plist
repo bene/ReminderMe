@@ -21,6 +21,7 @@
 	<key>INIntentsSupported</key>
 	<array>
 		<string>ViewRemindersIntent</string>
+		<string>ViewCombinedIntent</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -28,6 +29,7 @@
 	<string>To do</string>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>ViewCombinedIntent</string>
 		<string>ViewRemindersIntent</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

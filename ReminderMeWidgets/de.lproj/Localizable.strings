@@ -1,11 +1,13 @@
 "configuration"="Konfiguration";
 "access.granted"="Zugang stattgegeben";
 "access.denied"="Zugang verwehrt";
-"widget.title"="Erinnerungen";
-"widget.description"="Zeigt entweder die heutigen oder kommende Erinnerungen einer oder mehrerer Listen an.";
 "today"="Heute";
 "upcoming"="Demnächst";
-"widget.more"="weitere";
-"widget.done.all"="Alles erledigt.";
 "reminder.new"="Neue Erinnerung";
 "list.empty"="Keine";
+"widget.reminders.title"="Erinnerungen";
+"widget.reminders.description"="Zeigt entweder die heutigen oder kommende Erinnerungen einer oder mehrerer Listen an.";
+"widget.combined.title"="Erinnerungen und Termine";
+"widget.combined.description"="Zeigt dir gleichzeitig deine aktuellen Erinnerungen und Termine an.";
+"widget.more"="weitere";
+"widget.done.all"="Alles erledigt.";

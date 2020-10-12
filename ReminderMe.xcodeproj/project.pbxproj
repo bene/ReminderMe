@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F11980C253352B000037F25 /* CalendarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11980B253352B000037F25 /* CalendarItemView.swift */; };
+		8F119811253352D700037F25 /* CombinedWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F119810253352D700037F25 /* CombinedWidgetView.swift */; };
+		8F11981B2533531700037F25 /* CombinedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11981A2533531700037F25 /* CombinedProvider.swift */; };
+		8F119820253354CF00037F25 /* RemindersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11981F253354CF00037F25 /* RemindersProvider.swift */; };
+		8F41750225348B430023CA47 /* ReminderMe.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDB2A2523FD0200D0D9B2 /* ReminderMe.intentdefinition */; };
+		8F41750325348B430023CA47 /* ReminderMe.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDB2A2523FD0200D0D9B2 /* ReminderMe.intentdefinition */; };
 		8F87FB7E2529F8DC00627A4E /* ReminderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F87FB7D2529F8DC00627A4E /* ReminderListView.swift */; };
 		8FDCECB62527E45A0095994D /* ReminderWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDCECB52527E45A0095994D /* ReminderWidgetView.swift */; };
 		8FFBDA612523B0E400D0D9B2 /* ReminderMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDA602523B0E400D0D9B2 /* ReminderMeApp.swift */; };
@@ -21,12 +27,10 @@
 		8FFBDA972523B1A800D0D9B2 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDA962523B1A800D0D9B2 /* IntentHandler.swift */; };
 		8FFBDA9B2523B1A800D0D9B2 /* ReminderMeIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8FFBDA942523B1A800D0D9B2 /* ReminderMeIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8FFBDAB42523C04F00D0D9B2 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDA962523B1A800D0D9B2 /* IntentHandler.swift */; };
-		8FFBDAB92523C0A800D0D9B2 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDAB82523C0A800D0D9B2 /* ReminderView.swift */; };
+		8FFBDAB92523C0A800D0D9B2 /* ReminderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDAB82523C0A800D0D9B2 /* ReminderItemView.swift */; };
 		8FFBDB152523F0E200D0D9B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FFBDB182523F0E200D0D9B2 /* Localizable.strings */; };
 		8FFBDB162523F0E200D0D9B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FFBDB182523F0E200D0D9B2 /* Localizable.strings */; };
 		8FFBDB262523FD0200D0D9B2 /* ReminderMe.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDB2A2523FD0200D0D9B2 /* ReminderMe.intentdefinition */; };
-		8FFBDB272523FD0200D0D9B2 /* ReminderMe.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDB2A2523FD0200D0D9B2 /* ReminderMe.intentdefinition */; };
-		8FFBDB282523FD0200D0D9B2 /* ReminderMe.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBDB2A2523FD0200D0D9B2 /* ReminderMe.intentdefinition */; };
 		8FFE9AAE2529F2FE0088007B /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE9AAD2529F2FE0088007B /* ReminderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +67,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F11980B253352B000037F25 /* CalendarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarItemView.swift; sourceTree = "<group>"; };
+		8F119810253352D700037F25 /* CombinedWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedWidgetView.swift; sourceTree = "<group>"; };
+		8F11981A2533531700037F25 /* CombinedProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedProvider.swift; sourceTree = "<group>"; };
+		8F11981F253354CF00037F25 /* RemindersProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersProvider.swift; sourceTree = "<group>"; };
 		8F87FB7D2529F8DC00627A4E /* ReminderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListView.swift; sourceTree = "<group>"; };
 		8FDCECB52527E45A0095994D /* ReminderWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderWidgetView.swift; sourceTree = "<group>"; };
 		8FFBDA5D2523B0E400D0D9B2 /* ReminderMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +88,7 @@
 		8FFBDA942523B1A800D0D9B2 /* ReminderMeIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ReminderMeIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFBDA962523B1A800D0D9B2 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		8FFBDA982523B1A800D0D9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8FFBDAB82523C0A800D0D9B2 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
+		8FFBDAB82523C0A800D0D9B2 /* ReminderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderItemView.swift; sourceTree = "<group>"; };
 		8FFBDB172523F0E200D0D9B2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8FFBDB1C2523F0E600D0D9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8FFBDB292523FD0200D0D9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = en; path = en.lproj/ReminderMe.intentdefinition; sourceTree = "<group>"; };
@@ -174,8 +182,12 @@
 				8FFBDA7D2523B10200D0D9B2 /* Assets.xcassets */,
 				8FFBDA7F2523B10200D0D9B2 /* Info.plist */,
 				8FFBDB2A2523FD0200D0D9B2 /* ReminderMe.intentdefinition */,
-				8FFBDAB82523C0A800D0D9B2 /* ReminderView.swift */,
+				8FFBDAB82523C0A800D0D9B2 /* ReminderItemView.swift */,
 				8FDCECB52527E45A0095994D /* ReminderWidgetView.swift */,
+				8F11980B253352B000037F25 /* CalendarItemView.swift */,
+				8F119810253352D700037F25 /* CombinedWidgetView.swift */,
+				8F11981A2533531700037F25 /* CombinedProvider.swift */,
+				8F11981F253354CF00037F25 /* RemindersProvider.swift */,
 			);
 			path = ReminderMeWidgets;
 			sourceTree = "<group>";
@@ -332,11 +344,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FFBDB272523FD0200D0D9B2 /* ReminderMe.intentdefinition in Sources */,
+				8F11981B2533531700037F25 /* CombinedProvider.swift in Sources */,
 				8FDCECB62527E45A0095994D /* ReminderWidgetView.swift in Sources */,
 				8FFBDAB42523C04F00D0D9B2 /* IntentHandler.swift in Sources */,
-				8FFBDAB92523C0A800D0D9B2 /* ReminderView.swift in Sources */,
+				8F41750325348B430023CA47 /* ReminderMe.intentdefinition in Sources */,
+				8F119820253354CF00037F25 /* RemindersProvider.swift in Sources */,
+				8F119811253352D700037F25 /* CombinedWidgetView.swift in Sources */,
+				8FFBDAB92523C0A800D0D9B2 /* ReminderItemView.swift in Sources */,
 				8FFBDA7C2523B10100D0D9B2 /* ReminderMeWidgets.swift in Sources */,
+				8F11980C253352B000037F25 /* CalendarItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FFBDB282523FD0200D0D9B2 /* ReminderMe.intentdefinition in Sources */,
+				8F41750225348B430023CA47 /* ReminderMe.intentdefinition in Sources */,
 				8FFBDA972523B1A800D0D9B2 /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ReminderWidgeView : View {
     
     @Environment(\.widgetFamily)
     var family
-    var entry: Provider.Entry
+    var entry: RemindersProvider.Entry
 
     func getTitle() -> String {
         if entry.configuration.selectedLists?.count == 1 {
@@ -56,7 +57,7 @@ struct ReminderWidgeView : View {
             } else {
                 
                 ForEach(0..<(entry.reminders.count > maxLines() ? maxLines()-1 : entry.reminders.count)) { i in
-                    ReminderView(
+                    ReminderItemView(
                         title: entry.reminders[i].title,
                         due: entry.reminders[i].dueDateComponents?.date
                     )
@@ -72,5 +73,20 @@ struct ReminderWidgeView : View {
                 }
             }
         }.background(Color(UIColor.systemBackground))
+    }
+}
+
+struct ReminderWidget_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ReminderWidgeView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
+                .previewContext(WidgetPreviewContext(family: .systemLarge)).colorScheme(.dark)
+            ReminderWidgeView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
+            ReminderWidgeView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+            ReminderWidgeView(entry: RemindersEntry(reminders: [], date: Date(), configuration: ViewRemindersIntent()))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+        }
     }
 }
